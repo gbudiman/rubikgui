@@ -374,7 +374,7 @@ public class rubikJFrame extends javax.swing.JFrame {
     private void turnDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDMouseClicked
         // TODO add your handling code here:
         ((sequenceTextArea) sequence).myAppend("D");
-        cube.process("U'");
+        cube.process("D");
         state.setText(cube.getState());
     }//GEN-LAST:event_turnDMouseClicked
 
