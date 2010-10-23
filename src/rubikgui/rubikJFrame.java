@@ -17,9 +17,11 @@ package rubikgui;
  */
 public class rubikJFrame extends javax.swing.JFrame {
 
+    public rubik cube = new rubik();
     /** Creates new form rubikJFrame */
     public rubikJFrame() {
         initComponents();
+        state.setText(cube.getState());
     }
 
     /** This method is called from within the constructor to
@@ -33,32 +35,32 @@ public class rubikJFrame extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        rotateX = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        rotateXInv = new javax.swing.JButton();
+        rotateYInv = new javax.swing.JButton();
+        rotateY = new javax.swing.JButton();
+        rotateZInv = new javax.swing.JButton();
+        rotateZ = new javax.swing.JButton();
+        turnU = new javax.swing.JButton();
+        turnD = new javax.swing.JButton();
+        turnR = new javax.swing.JButton();
+        turnL = new javax.swing.JButton();
+        turnF = new javax.swing.JButton();
+        turnB = new javax.swing.JButton();
+        turnLInv = new javax.swing.JButton();
+        turnDInv = new javax.swing.JButton();
+        turnRInv = new javax.swing.JButton();
+        turnUInv = new javax.swing.JButton();
+        turnBInv = new javax.swing.JButton();
+        turnFInv = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        state = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        sequence = new sequenceTextArea();
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -66,89 +68,157 @@ public class rubikJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("X");
-        jButton1.setMaximumSize(new java.awt.Dimension(40, 27));
-        jButton1.setMinimumSize(new java.awt.Dimension(40, 27));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        rotateX.setText("X");
+        rotateX.setDefaultCapable(false);
+        rotateX.setMaximumSize(new java.awt.Dimension(40, 40));
+        rotateX.setMinimumSize(new java.awt.Dimension(40, 40));
+        rotateX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rotateXMouseClicked(evt);
             }
         });
 
         jLabel1.setText("Rotate");
 
-        jButton2.setText("X'");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        rotateXInv.setText("X'");
+        rotateXInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rotateXInvMouseClicked(evt);
             }
         });
 
-        jButton3.setText("Y'");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        rotateYInv.setText("Y'");
+        rotateYInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rotateYInvMouseClicked(evt);
             }
         });
 
-        jButton4.setText("Y");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        rotateY.setText("Y");
+        rotateY.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rotateYMouseClicked(evt);
             }
         });
 
-        jButton5.setText("Z'");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        rotateZInv.setText("Z'");
+        rotateZInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rotateZInvMouseClicked(evt);
             }
         });
 
-        jButton6.setText("Z");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        rotateZ.setText("Z");
+        rotateZ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rotateZMouseClicked(evt);
             }
         });
 
-        jButton7.setText("U");
+        turnU.setText("U");
+        turnU.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnUMouseClicked(evt);
+            }
+        });
 
-        jButton8.setText("D");
+        turnD.setText("D");
+        turnD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnDMouseClicked(evt);
+            }
+        });
 
-        jButton9.setText("R");
+        turnR.setText("R");
+        turnR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnRMouseClicked(evt);
+            }
+        });
 
-        jButton10.setText("L");
+        turnL.setText("L");
+        turnL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnLMouseClicked(evt);
+            }
+        });
 
-        jButton11.setText("F");
+        turnF.setText("F");
+        turnF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnFMouseClicked(evt);
+            }
+        });
 
-        jButton12.setText("B");
+        turnB.setText("B");
+        turnB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnBMouseClicked(evt);
+            }
+        });
 
-        jButton13.setText("L'");
+        turnLInv.setText("L'");
+        turnLInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnLInvMouseClicked(evt);
+            }
+        });
 
-        jButton14.setText("D'");
+        turnDInv.setText("D'");
+        turnDInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnDInvMouseClicked(evt);
+            }
+        });
 
-        jButton15.setText("R'");
+        turnRInv.setText("R'");
+        turnRInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnRInvMouseClicked(evt);
+            }
+        });
 
-        jButton16.setText("U'");
+        turnUInv.setText("U'");
+        turnUInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnUInvMouseClicked(evt);
+            }
+        });
 
-        jButton17.setText("B'");
+        turnBInv.setText("B'");
+        turnBInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnBInvMouseClicked(evt);
+            }
+        });
 
-        jButton18.setText("F'");
+        turnFInv.setText("F'");
+        turnFInv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turnFInvMouseClicked(evt);
+            }
+        });
 
-        jButton19.setText("RESET");
+        reset.setText("RESET");
+        reset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetMouseClicked(evt);
+            }
+        });
 
         jLabel2.setText("Sequence");
 
         jLabel3.setText("State");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        state.setColumns(20);
+        state.setLineWrap(true);
+        state.setRows(5);
+        jScrollPane3.setViewportView(state);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        sequence.setColumns(20);
+        sequence.setLineWrap(true);
+        sequence.setRows(5);
+        jScrollPane4.setViewportView(sequence);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,51 +230,51 @@ public class rubikJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rotateX, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rotateXInv, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rotateY, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rotateYInv, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rotateZ, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(rotateZInv, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnUInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnDInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnRInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnLInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnFInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnBInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnU, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnD, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnR, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnL, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turnF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(turnB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,30 +282,30 @@ public class rubikJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5))
+                    .addComponent(rotateX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rotateXInv)
+                    .addComponent(rotateY)
+                    .addComponent(rotateYInv)
+                    .addComponent(rotateZ)
+                    .addComponent(rotateZInv))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12))
+                    .addComponent(turnU)
+                    .addComponent(turnD)
+                    .addComponent(turnR)
+                    .addComponent(turnL)
+                    .addComponent(turnF)
+                    .addComponent(turnB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16)
-                    .addComponent(jButton14)
-                    .addComponent(jButton15)
-                    .addComponent(jButton13)
-                    .addComponent(jButton18)
-                    .addComponent(jButton17))
+                    .addComponent(turnUInv)
+                    .addComponent(turnDInv)
+                    .addComponent(turnRInv)
+                    .addComponent(turnLInv)
+                    .addComponent(turnFInv)
+                    .addComponent(turnBInv))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton19)
+                .addComponent(reset)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -243,7 +313,7 @@ public class rubikJFrame extends javax.swing.JFrame {
                         .addGap(68, 68, 68)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -252,30 +322,139 @@ public class rubikJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void rotateXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateXMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ((sequenceTextArea) sequence).myAppend("X");
+        cube.process("X");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_rotateXMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void rotateXInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateXInvMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        ((sequenceTextArea) sequence).myAppend("X'");
+        cube.process("X'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_rotateXInvMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void rotateYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateYMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        ((sequenceTextArea) sequence).myAppend("Y");
+        cube.process("Y");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_rotateYMouseClicked
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void rotateYInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateYInvMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        ((sequenceTextArea) sequence).myAppend("Y'");
+        cube.process("Y'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_rotateYInvMouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void rotateZMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateZMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        ((sequenceTextArea) sequence).myAppend("Z");
+        cube.process("Z");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_rotateZMouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void rotateZInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateZInvMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        ((sequenceTextArea) sequence).myAppend("Z'");
+        cube.process("Z'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_rotateZInvMouseClicked
 
+    private void turnUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnUMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("U");
+        cube.process("U");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnUMouseClicked
+
+    private void turnDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("D");
+        cube.process("U'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnDMouseClicked
+
+    private void turnRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnRMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("R");
+        cube.process("R");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnRMouseClicked
+
+    private void turnLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnLMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("L");
+        cube.process("L");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnLMouseClicked
+
+    private void turnFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnFMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("F");
+        cube.process("F");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnFMouseClicked
+
+    private void turnBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnBMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("B");
+        cube.process("B");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnBMouseClicked
+
+    private void turnUInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnUInvMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("U'");
+        cube.process("U'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnUInvMouseClicked
+
+    private void turnDInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDInvMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("D'");
+        cube.process("D'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnDInvMouseClicked
+
+    private void turnRInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnRInvMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("R'");
+        cube.process("R'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnRInvMouseClicked
+
+    private void turnLInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnLInvMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("L'");
+        cube.process("L'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnLInvMouseClicked
+
+    private void turnFInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnFInvMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("F'");
+        cube.process("F'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnFInvMouseClicked
+
+    private void turnBInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnBInvMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("B'");
+        cube.process("B'");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_turnBInvMouseClicked
+
+    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
+        // TODO add your handling code here:
+        ((sequenceTextArea) sequence).myAppend("RESET");
+        cube.process("RESET");
+        state.setText(cube.getState());
+    }//GEN-LAST:event_resetMouseClicked
+    
     /**
     * @param args the command line arguments
     */
@@ -288,34 +467,34 @@ public class rubikJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JButton reset;
+    private javax.swing.JButton rotateX;
+    private javax.swing.JButton rotateXInv;
+    private javax.swing.JButton rotateY;
+    private javax.swing.JButton rotateYInv;
+    private javax.swing.JButton rotateZ;
+    private javax.swing.JButton rotateZInv;
+    private javax.swing.JTextArea sequence;
+    private javax.swing.JTextArea state;
+    private javax.swing.JButton turnB;
+    private javax.swing.JButton turnBInv;
+    private javax.swing.JButton turnD;
+    private javax.swing.JButton turnDInv;
+    private javax.swing.JButton turnF;
+    private javax.swing.JButton turnFInv;
+    private javax.swing.JButton turnL;
+    private javax.swing.JButton turnLInv;
+    private javax.swing.JButton turnR;
+    private javax.swing.JButton turnRInv;
+    private javax.swing.JButton turnU;
+    private javax.swing.JButton turnUInv;
     // End of variables declaration//GEN-END:variables
 
 }
