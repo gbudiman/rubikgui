@@ -39,9 +39,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="canvas1" alignment="0" pref="402" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -96,7 +97,7 @@
                       <Component id="turnB" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,7 +114,9 @@
                   <Component id="rotateZ" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rotateZInv" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="325" max="32767" attributes="0"/>
+              <EmptySpace pref="211" max="32767" attributes="0"/>
+              <Component id="canvas1" min="-2" pref="280" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="turnU" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="turnD" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -361,5 +364,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="java.awt.Canvas" name="canvas1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new canvas2D()"/>
+      </AuxValues>
+    </Component>
   </SubComponents>
 </Form>

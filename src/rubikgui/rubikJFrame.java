@@ -18,10 +18,13 @@ package rubikgui;
 public class rubikJFrame extends javax.swing.JFrame {
 
     public rubik cube = new rubik();
+
     /** Creates new form rubikJFrame */
     public rubikJFrame() {
         initComponents();
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        repaint();
     }
 
     /** This method is called from within the constructor to
@@ -61,6 +64,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         state = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         sequence = new sequenceTextArea();
+        canvas1 = new canvas2D();
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -227,6 +231,7 @@ public class rubikJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -274,7 +279,7 @@ public class rubikJFrame extends javax.swing.JFrame {
                         .addComponent(turnF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(turnB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,7 +293,9 @@ public class rubikJFrame extends javax.swing.JFrame {
                     .addComponent(rotateYInv)
                     .addComponent(rotateZ)
                     .addComponent(rotateZInv))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(turnU)
                     .addComponent(turnD)
@@ -369,6 +376,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("U");
         cube.process("U");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnUMouseClicked
 
     private void turnDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDMouseClicked
@@ -376,6 +385,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("D");
         cube.process("D");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnDMouseClicked
 
     private void turnRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnRMouseClicked
@@ -383,6 +394,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("R");
         cube.process("R");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnRMouseClicked
 
     private void turnLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnLMouseClicked
@@ -390,6 +403,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("L");
         cube.process("L");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnLMouseClicked
 
     private void turnFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnFMouseClicked
@@ -397,6 +412,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("F");
         cube.process("F");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnFMouseClicked
 
     private void turnBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnBMouseClicked
@@ -404,6 +421,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("B");
         cube.process("B");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnBMouseClicked
 
     private void turnUInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnUInvMouseClicked
@@ -411,6 +430,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("U'");
         cube.process("U'");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnUInvMouseClicked
 
     private void turnDInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDInvMouseClicked
@@ -418,6 +439,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("D'");
         cube.process("D'");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnDInvMouseClicked
 
     private void turnRInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnRInvMouseClicked
@@ -425,6 +448,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("R'");
         cube.process("R'");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnRInvMouseClicked
 
     private void turnLInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnLInvMouseClicked
@@ -432,6 +457,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("L'");
         cube.process("L'");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnLInvMouseClicked
 
     private void turnFInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnFInvMouseClicked
@@ -439,6 +466,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("F'");
         cube.process("F'");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnFInvMouseClicked
 
     private void turnBInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnBInvMouseClicked
@@ -446,6 +475,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("B'");
         cube.process("B'");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_turnBInvMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
@@ -453,6 +484,8 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("RESET");
         cube.process("RESET");
         state.setText(cube.getState());
+        ((canvas2D) canvas1).passState(cube.getState());
+        //repaint();
     }//GEN-LAST:event_resetMouseClicked
     
     /**
@@ -467,6 +500,7 @@ public class rubikJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Canvas canvas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
