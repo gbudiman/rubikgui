@@ -15,12 +15,12 @@ package rubikgui;
  *
  * @author gbudiman
  */
-public class rubikJFrame extends javax.swing.JFrame {
+public class GPA2 extends javax.swing.JFrame {
 
     public rubik cube = new rubik();
 
     /** Creates new form rubikJFrame */
-    public rubikJFrame() {
+    public GPA2() {
         initComponents();
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
@@ -510,7 +510,7 @@ public class rubikJFrame extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new rubikJFrame().setVisible(true);
+                new GPA2().setVisible(true);
             }
         });
     }
