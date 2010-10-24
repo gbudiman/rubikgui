@@ -29,23 +29,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="canvas1" alignment="0" pref="406" max="32767" attributes="0"/>
-                  <Component id="canvas2" alignment="0" pref="406" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rotateX" min="-2" pref="54" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rotateXInv" min="-2" pref="52" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rotateY" min="-2" pref="52" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rotateYInv" min="-2" pref="52" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rotateZ" min="-2" pref="52" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rotateZInv" min="-2" pref="52" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="canvas1" alignment="0" pref="411" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="turnUInv" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -80,8 +64,33 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane4" pref="330" max="32767" attributes="0"/>
-                          <Component id="jScrollPane3" alignment="1" pref="330" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="335" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="1" pref="335" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="rotateX" min="-2" pref="54" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="rotateXInv" min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="rotateY" min="-2" pref="52" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="canvas2" min="0" pref="0" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="rotateYInv" min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="rotateZ" min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="rotateZInv" min="-2" pref="52" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="canvas3" min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -103,7 +112,10 @@
                   <Component id="rotateZInv" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="canvas2" min="-2" pref="154" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="canvas2" min="-2" pref="154" max="-2" attributes="0"/>
+                  <Component id="canvas3" min="-2" pref="96" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="canvas1" min="-2" pref="280" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -361,6 +373,11 @@
     <Component class="java.awt.Canvas" name="canvas2">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new canvas3D()"/>
+      </AuxValues>
+    </Component>
+    <Component class="java.awt.Canvas" name="canvas3">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new axis()"/>
       </AuxValues>
     </Component>
   </SubComponents>
