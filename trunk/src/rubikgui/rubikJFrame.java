@@ -24,6 +24,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         initComponents();
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
         repaint();
     }
 
@@ -36,8 +37,6 @@ public class rubikJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         rotateX = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         rotateXInv = new javax.swing.JButton();
@@ -65,12 +64,11 @@ public class rubikJFrame extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         sequence = new sequenceTextArea();
         canvas1 = new canvas2D();
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        canvas2 = new canvas3D();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Rubik GUI");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         rotateX.setText("X");
         rotateX.setDefaultCapable(false);
@@ -215,13 +213,15 @@ public class rubikJFrame extends javax.swing.JFrame {
         jLabel3.setText("State");
 
         state.setColumns(20);
+        state.setEditable(false);
         state.setLineWrap(true);
-        state.setRows(5);
+        state.setRows(2);
         jScrollPane3.setViewportView(state);
 
         sequence.setColumns(20);
+        sequence.setEditable(false);
         sequence.setLineWrap(true);
-        sequence.setRows(5);
+        sequence.setRows(3);
         jScrollPane4.setViewportView(sequence);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,7 +231,8 @@ public class rubikJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                    .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                    .addComponent(canvas2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,14 +261,6 @@ public class rubikJFrame extends javax.swing.JFrame {
                         .addComponent(turnBInv, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(turnU, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(turnD, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,7 +271,15 @@ public class rubikJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(turnF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(turnB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(turnB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -293,7 +294,9 @@ public class rubikJFrame extends javax.swing.JFrame {
                     .addComponent(rotateYInv)
                     .addComponent(rotateZ)
                     .addComponent(rotateZInv))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(canvas2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -313,17 +316,15 @@ public class rubikJFrame extends javax.swing.JFrame {
                     .addComponent(turnBInv))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reset)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -334,6 +335,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("X");
         cube.process("X");
         state.setText(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_rotateXMouseClicked
 
     private void rotateXInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateXInvMouseClicked
@@ -341,6 +343,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("X'");
         cube.process("X'");
         state.setText(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_rotateXInvMouseClicked
 
     private void rotateYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateYMouseClicked
@@ -348,6 +351,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("Y");
         cube.process("Y");
         state.setText(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_rotateYMouseClicked
 
     private void rotateYInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateYInvMouseClicked
@@ -355,6 +359,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("Y'");
         cube.process("Y'");
         state.setText(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_rotateYInvMouseClicked
 
     private void rotateZMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateZMouseClicked
@@ -362,6 +367,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("Z");
         cube.process("Z");
         state.setText(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_rotateZMouseClicked
 
     private void rotateZInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rotateZInvMouseClicked
@@ -369,6 +375,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         ((sequenceTextArea) sequence).myAppend("Z'");
         cube.process("Z'");
         state.setText(cube.getState());
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_rotateZInvMouseClicked
 
     private void turnUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnUMouseClicked
@@ -377,7 +384,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("U");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnUMouseClicked
 
     private void turnDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDMouseClicked
@@ -386,7 +393,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("D");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnDMouseClicked
 
     private void turnRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnRMouseClicked
@@ -395,7 +402,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("R");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnRMouseClicked
 
     private void turnLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnLMouseClicked
@@ -404,7 +411,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("L");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnLMouseClicked
 
     private void turnFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnFMouseClicked
@@ -413,7 +420,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("F");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnFMouseClicked
 
     private void turnBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnBMouseClicked
@@ -422,7 +429,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("B");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnBMouseClicked
 
     private void turnUInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnUInvMouseClicked
@@ -431,7 +438,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("U'");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnUInvMouseClicked
 
     private void turnDInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnDInvMouseClicked
@@ -440,7 +447,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("D'");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnDInvMouseClicked
 
     private void turnRInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnRInvMouseClicked
@@ -449,7 +456,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("R'");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnRInvMouseClicked
 
     private void turnLInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnLInvMouseClicked
@@ -458,7 +465,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("L'");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnLInvMouseClicked
 
     private void turnFInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnFInvMouseClicked
@@ -467,7 +474,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("F'");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnFInvMouseClicked
 
     private void turnBInvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turnBInvMouseClicked
@@ -476,7 +483,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("B'");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_turnBInvMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
@@ -485,7 +492,7 @@ public class rubikJFrame extends javax.swing.JFrame {
         cube.process("RESET");
         state.setText(cube.getState());
         ((canvas2D) canvas1).passState(cube.getState());
-        //repaint();
+        ((canvas3D) canvas2).passState(cube);
     }//GEN-LAST:event_resetMouseClicked
     
     /**
@@ -501,13 +508,12 @@ public class rubikJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
+    private java.awt.Canvas canvas2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JButton reset;
     private javax.swing.JButton rotateX;
     private javax.swing.JButton rotateXInv;
