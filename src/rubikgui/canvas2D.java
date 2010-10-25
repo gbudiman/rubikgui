@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package rubikgui;
+//package rubikgui;
 
 import java.awt.Canvas;
 import java.awt.Color;
