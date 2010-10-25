@@ -9,7 +9,7 @@
  * Created on Oct 22, 2010, 8:11:00 AM
  */
 
-package rubikgui;
+//package rubikgui;
 
 /**
  *
@@ -77,7 +77,7 @@ public class GPA2 extends javax.swing.JFrame {
         rotateX.setMaximumSize(new java.awt.Dimension(40, 40));
         rotateX.setMinimumSize(new java.awt.Dimension(40, 40));
         rotateX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 rotateXMouseClicked(evt);
             }
         });
@@ -86,126 +86,126 @@ public class GPA2 extends javax.swing.JFrame {
 
         rotateXInv.setText("X'");
         rotateXInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 rotateXInvMouseClicked(evt);
             }
         });
 
         rotateYInv.setText("Y'");
         rotateYInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 rotateYInvMouseClicked(evt);
             }
         });
 
         rotateY.setText("Y");
         rotateY.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 rotateYMouseClicked(evt);
             }
         });
 
         rotateZInv.setText("Z'");
         rotateZInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 rotateZInvMouseClicked(evt);
             }
         });
 
         rotateZ.setText("Z");
         rotateZ.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 rotateZMouseClicked(evt);
             }
         });
 
         turnU.setText("U");
         turnU.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnUMouseClicked(evt);
             }
         });
 
         turnD.setText("D");
         turnD.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnDMouseClicked(evt);
             }
         });
 
         turnR.setText("R");
         turnR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnRMouseClicked(evt);
             }
         });
 
         turnL.setText("L");
         turnL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnLMouseClicked(evt);
             }
         });
 
         turnF.setText("F");
         turnF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnFMouseClicked(evt);
             }
         });
 
         turnB.setText("B");
         turnB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnBMouseClicked(evt);
             }
         });
 
         turnLInv.setText("L'");
         turnLInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnLInvMouseClicked(evt);
             }
         });
 
         turnDInv.setText("D'");
         turnDInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnDInvMouseClicked(evt);
             }
         });
 
         turnRInv.setText("R'");
         turnRInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnRInvMouseClicked(evt);
             }
         });
 
         turnUInv.setText("U'");
         turnUInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnUInvMouseClicked(evt);
             }
         });
 
         turnBInv.setText("B'");
         turnBInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnBInvMouseClicked(evt);
             }
         });
 
         turnFInv.setText("F'");
         turnFInv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 turnFInvMouseClicked(evt);
             }
         });
 
         reset.setText("RESET");
         reset.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 resetMouseClicked(evt);
             }
         });
